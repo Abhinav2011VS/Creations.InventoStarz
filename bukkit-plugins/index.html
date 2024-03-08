@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoStarz - Official Website</title>
+    <link rel="icon" href="/favicon.png">
+    <style>
+        lmno {
+            color: white;
+            text-decoration: none;
+        }
+        pqr {
+            text-align:center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.minecraft.net/content/dam/games/minecraft/key-art/Vanilla-PMP_Collection-Carousel-0_Buzzy-Bees_1280x768.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8); /* Adjust opacity for navbar */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0.7; /* Adjust opacity for dropdown content */
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            size: 10%;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity for navbar */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+        }
+
+        .nav-list {
+            width: 70%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .nav-list li {
+            list-style: none;
+            padding: 26px 30px;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .nav-list li a:hover {
+            filter: brightness(120%);
+        }
+
+        .rightnav {
+            width: 70%;
+            text-align: right;
+            align-items: center;
+            display: flex;
+            font-decoration: none;
+            color: white;
+            font-family: arial;
+            font-size: 16px;
+        }
+
+        .rightnav-list li {
+            list-style: none;
+            padding: 26px 30px;
+        }
+
+        .rightnav-list li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .rightnav-list li a:hover {
+            color: grey;
+        }
+        .discord-button {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .discord-button img {
+            height: 20px;
+            width: 80px;
+            margin-right: 5px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 120px auto 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .sub-container {
+            min-width: 650px;
+            max-width: 700px;
+            max-height: 400px;
+            margin: 120px auto 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .sub-container img {
+            max-width: 200px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <div class="logo"><a href="/"><img src="/logo.png" alt="Logo"></a></div>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/mods/">Mods</a></li>
+            <li><a href="/data-packs/">Data Packs</a></li>
+            <li><a href="/texture-packs/">Texture/Resource Packs</a></li>
+            <div class="dropdown" style="float:right;">
+                <button class="dropbtn"><lmn>More...</lmn></button>
+                <div class="dropdown-content" style="right:0;">
+                    <a href="/shaders/">Shaders</a>
+                    <a href="/worlds/">Worlds</a>
+                    <a href="/addons/">Addons</a>
+                    <a href="/bukkit-plugins/">Bukkit Plugins</a>
+                    <a href="/customizations/">Customizations</a>
+                    <a href="/mod-packs/">Mod Packs</a>
+                </div>
+            </div>
+        </ul>
+        <ul class="rightNav">
+            <a href="/login/"><lmno>Login/Sign Up</lmno></a>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>My Mods</h1>
+        <div class="sub-container">
+            <img src="/mods/Emeralds And Rubies Mod.png" alt="Image">
+            <div>
+                <h3><pqr>Emerald And Rubies</pqr></h3>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript for making dropdown functional on hover and click
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdown = document.querySelector('.dropdown');
+            var dropdownContent = dropdown.querySelector('.dropdown-content');
+
+            dropdown.addEventListener('mouseover', function() {
+                dropdownContent.style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseout', function() {
+                dropdownContent.style.display = 'none';
+            });
+
+            dropdown.querySelector('button').addEventListener('click', function() {
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
