@@ -218,17 +218,27 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="/logo.png" alt="Logo">
-        </div>
         <ul class="nav-list">
+            <div class="logo"><a href="/"><img src="/logo.png" style="width:40px;height:40px;"></a></div>
             <li><a href="/">Home</a></li>
             <li><a href="/about/">About</a></li>
             <li><a href="/mods/">Mods</a></li>
             <li><a href="/data-packs/">Data Packs</a></li>
-            <li><a href="/texture-packs/">Texture/Resource Packs</a></li>
-            <li><a href="/issues/">Issues</a></li>
-            <li><a href="/login/">Login/Sign Up</a></li>
+            <li><a href="/texture-packs/">Testure/Resource Packs</a></li>
+            <div class="dropdown" style="float:right;">
+                <button class="dropbtn"><lmn>More...</lmn></button>
+                <div class="dropdown-content" style="right:0;">
+                    <a href="/shaders/">Shaders</a>
+                    <a href="/worlds/">Worlds</a>
+                    <a href="/addons/">Addons</a>
+                    <a href="/bukkit-plugins/">Bukkit Plugins</a>
+                    <a href="/customizations/">Customizations</a>
+                    <a href="/mod-packs/">Mod Packs</a>
+                </div>
+            </div>
+        </ul>
+        <ul class="rightNav">
+            <a href="/login/"><lmno>Login/Sign Up</lmno></a>
         </ul>
     </nav>
 
