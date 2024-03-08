@@ -193,12 +193,15 @@
         <div class="login-form">
             <div class="login-option">
                 <h2>Login with Username/Email and Password</h2>
-                <input type="text" placeholder="Username or Email">
-                <input type="password" placeholder="Password">
+                <input type="text" id="username" placeholder="Username or Email">
+                <input type="password" id="password" placeholder="Password">
             </div>
-            <button href="/login/otp/", class="try-another-button">Try Another Way</button>
+            <button class="try-another-button">Try Another Way</button>
             <button class="login-button">Login</button>
+            <div id="login-message"></div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
