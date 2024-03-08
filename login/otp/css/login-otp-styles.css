@@ -1,0 +1,97 @@
+/* Existing styles remain unchanged */
+.login-container {
+    max-width: 400px;
+    margin: 120px auto 50px;
+    padding: 20px;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container h1 {
+    color: white;
+}
+
+.login-form {
+    margin-top: 30px;
+}
+
+.login-option {
+    margin-bottom: 20px;
+}
+
+.login-option h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.login-option input[type="text"],
+.login-option input[type="email"],
+.login-option input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-option input[type="text"]:focus,
+.login-option input[type="email"]:focus,
+.login-option input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #007bff;
+}
+
+.otp-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.otp-button:hover {
+    background-color: #0056b3;
+}
+
+.login-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #218838;
+}
+
+.try-another-button {
+    background-color: #ffc107;
+    color: #212529;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.try-another-button:hover {
+    background-color: #e0a800;
+}
+
+.send-otp-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.send-otp-button:hover {
+    background-color: #0056b3;
+}
