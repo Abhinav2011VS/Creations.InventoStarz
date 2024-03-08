@@ -99,7 +99,7 @@
         <a href="/data-packs/">Data Packs</a>
         <a href="/texture-packs/">Texture/Resource Packs</a>
         <div class="dropdown">
-            <button>More...</button>
+            <button class="navbar a">More...</button>
             <div class="dropdown-content">
                 <a href="/shaders/">Shaders</a>
                 <a href="/worlds/">Worlds</a>
@@ -132,6 +132,7 @@
                     dropdownContent.style.display = 'block';
                 });
                 dropdown.addEventListener('mouseout', function(event) {
+                    // Check if the mouse is still within the dropdown or its content
                     if (!dropdown.contains(event.relatedTarget)) {
                         dropdownContent.style.display = 'none';
                     }
@@ -147,6 +148,7 @@
                     dropdownContent.style.display = 'block';
                 });
                 dropdownContent.addEventListener('mouseout', function(event) {
+                    // Check if the mouse is still within the dropdown or its content
                     if (!dropdown.contains(event.relatedTarget)) {
                         dropdownContent.style.display = 'none';
                     }
