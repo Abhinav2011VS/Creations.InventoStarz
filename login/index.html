@@ -3,64 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Login</title>
+    <title>Login - InventoStarz</title>
     <link rel="icon" href="/favicon.png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://www.layerstack.com/blog/wp-content/uploads/2023/03/64037f4fa963a2001cd7eeb2.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 120px auto 50px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        input[type="text"],
-        input[type="password"],
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: none;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: black;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Server Login</h1>
-        <form action="/login" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+    <nav class="navbar">
+        <div class="background"></div>
+        <ul class="nav-list">
+            <div class="logo"><a href="/"><img src="/logo.png" style="width:40px;height:40px;"></a></div>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/mods/">Mods</a></li>
+            <li><a href="/data-packs/">Data Packs</a></li>
+            <li><a href="/texture-packs/">Testure/Resource Packs</a></li>
+            <div class="dropdown" style="float:right;">
+                <button class="dropbtn"><lmn>More...</lmn></button>
+                <div class="dropdown-content" style="right:0;">
+                    <a href="/shaders/">Shaders</a>
+                    <a href="/worlds/">Worlds</a>
+                    <a href="/addons/">Addons</a>
+                    <a href="/bukkit-plugins/">Bukkit Plugins</a>
+                    <a href="/customizations/">Customizations</a>
+                    <a href="/mod-packs/">Mod Packs</a>
+                </div>
+            </div>
+        </ul>
+        <ul class="rightNav">
+            <li><a href="/login/"><lmno>Login/Sign Up</lmno></a></li>
+        </ul>
+    </nav>
+    <div class="container login-container">
+        <h1>Login to InventoStarz</h1>
+        <div class="login-form">
+            <div class="login-option">
+                <h2>Login with Username/Email and Password</h2>
+                <input type="text" placeholder="Username or Email">
+                <input type="password" placeholder="Password">
+            </div>
+            <div class="login-option">
+                <h2>Login with Email and OTP</h2>
+                <input type="email" placeholder="Email">
+                <button class="otp-button">Send OTP</button>
+                <input type="text" placeholder="Enter OTP">
+            </div>
+            <button class="login-button">Login</button>
+        </div>
     </div>
 </body>
 </html>
