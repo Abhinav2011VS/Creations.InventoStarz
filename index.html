@@ -17,7 +17,7 @@
         }
         .navbar {
             background-color: rgba(0, 0, 0, 0.5);
-            overflow: hidden;
+            overflow: visible; /* Allow dropdown content to overflow */
             position: fixed;
             width: 100%;
             top: 0;
@@ -45,6 +45,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             min-width: 160px;
             z-index: 1;
+            margin-top: 1em; /* Adjust position to be below the navbar */
         }
         .dropdown-content a {
             display: block;
@@ -99,7 +100,7 @@
         <a href="/data-packs/">Data Packs</a>
         <a href="/texture-packs/">Texture/Resource Packs</a>
         <div class="dropdown" id="moreDropdown">
-            <button>More...</button>
+            <button class="navbar-button">More...</button>
             <div class="dropdown-content">
                 <a href="/shaders/">Shaders</a>
                 <a href="/worlds/">Worlds</a>
