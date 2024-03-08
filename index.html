@@ -101,20 +101,26 @@
             vertical-align: middle;
         }
         .navbar-button {
-            background-color: transparent;
+            background-color: rgba(0, 0, 0, 0.5);
             border: none;
             cursor: pointer;
             color: #f2f2f2;
+            text-decoration: none;
+            padding: 1em;
+            font-size: 1em;
+        }
+        .navbar-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/mods/">Mods</a>
-        <a href="/data-packs/">Data Packs</a>
-        <a href="/texture-packs/">Texture/Resource Packs</a>
+        <a href="/" class="navbar-button">Home</a>
+        <a href="/about/" class="navbar-button">About</a>
+        <a href="/mods/" class="navbar-button">Mods</a>
+        <a href="/data-packs/" class="navbar-button">Data Packs</a>
+        <a href="/texture-packs/" class="navbar-button">Texture/Resource Packs</a>
         <div class="dropdown" id="moreDropdown">
             <button class="navbar-button">More...<span class="more-arrow"></span></button>
             <div class="dropdown-content">
@@ -141,19 +147,19 @@
         <p>Join me on our journey to make Minecraft even more enjoyable and exciting!</p>
     </div>
     <script>
-        // JavaScript for making dropdown functional on hover and click
-        document.addEventListener('DOMContentLoaded', function() {
-            var dropdown = document.getElementById('moreDropdown');
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(function(dropdown) {
             var dropdownContent = dropdown.querySelector('.dropdown-content');
-
             dropdown.addEventListener('mouseover', function() {
                 dropdownContent.style.display = 'block';
             });
-
-            dropdown.addEventListener('mouseout', function() {
-                dropdownContent.style.display = 'none';
+            dropdown.addEventListener('mouseout', function(event) {
+                // Check if the mouse is still within the dropdown or its content
+                if (!dropdown.contains(event.relatedTarget)) {
+                    dropdownContent.style.display = 'none';
+                }
             });
-
             dropdown.querySelector('button').addEventListener('click', function() {
                 if (dropdownContent.style.display === 'block') {
                     dropdownContent.style.display = 'none';
@@ -161,7 +167,17 @@
                     dropdownContent.style.display = 'block';
                 }
             });
+            dropdownContent.addEventListener('mouseover', function() {
+                dropdownContent.style.display = 'block';
+            });
+            dropdownContent.addEventListener('mouseout', function(event) {
+                // Check if the mouse is still within the dropdown or its content
+                if (!dropdown.contains(event.relatedTarget)) {
+                    dropdownContent.style.display = 'none';
+                }
+            });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
