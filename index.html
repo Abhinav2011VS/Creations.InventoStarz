@@ -99,7 +99,7 @@
         <a href="/data-packs/">Data Packs</a>
         <a href="/texture-packs/">Texture/Resource Packs</a>
         <div class="dropdown" id="moreDropdown">
-            <a href="javascript:void(0);" onclick="toggleDropdown()">More...</a>
+            <button>More...</button>
             <div class="dropdown-content">
                 <a href="/shaders/">Shaders</a>
                 <a href="/worlds/">Worlds</a>
@@ -123,12 +123,28 @@
         <p>Explore my creations and enhance your gameplay with my carefully crafted additions.</p>
         <p>Join me on our journey to make Minecraft even more enjoyable and exciting!</p>
     </div>
-
     <script>
-        function toggleDropdown() {
-            var dropdownContent = document.getElementById("moreDropdown").getElementsByClassName("dropdown-content")[0];
-            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-        }
+        // JavaScript for making dropdown functional on hover and click
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdown = document.getElementById('moreDropdown');
+            var dropdownContent = dropdown.querySelector('.dropdown-content');
+
+            dropdown.addEventListener('mouseover', function() {
+                dropdownContent.style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseout', function() {
+                dropdownContent.style.display = 'none';
+            });
+
+            dropdown.querySelector('button').addEventListener('click', function() {
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+            });
+        });
     </script>
 </body>
 </html>
