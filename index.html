@@ -90,6 +90,22 @@
             color: #666;
             margin-bottom: 1em;
         }
+        .more-arrow {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid white;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        .navbar-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
@@ -100,7 +116,7 @@
         <a href="/data-packs/">Data Packs</a>
         <a href="/texture-packs/">Texture/Resource Packs</a>
         <div class="dropdown" id="moreDropdown">
-            <button class="navbar-button">More...</button>
+            <button class="navbar-button">More...<span class="more-arrow"></span></button>
             <div class="dropdown-content">
                 <a href="/shaders/">Shaders</a>
                 <a href="/worlds/">Worlds</a>
