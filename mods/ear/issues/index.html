@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoStarz - Official Website</title>
+    <link rel="icon" href="/favicon.png">
+    <style>
+        lmno {
+            color: white;
+            text-decoration: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.minecraft.net/content/dam/games/minecraft/key-art/Vanilla-PMP_Collection-Carousel-0_Buzzy-Bees_1280x768.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8); /* Adjust opacity for navbar */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0.7; /* Adjust opacity for dropdown content */
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            size: 10%;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity for navbar */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+        }
+
+        .nav-list {
+            width: 70%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 180px;
+            border-radius: 50px;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .nav-list li {
+            list-style: none;
+            padding: 26px 30px;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .nav-list li a:hover {
+            filter: brightness(120%);
+        }
+
+        .rightnav {
+            width: 70%;
+            text-align: right;
+            align-items: center;
+            display: flex;
+            font-decoration: none;
+            color: white;
+            font-family: arial;
+            font-size: 16px;
+        }
+
+        .rightnav-list li {
+            list-style: none;
+            padding: 26px 30px;
+        }
+
+        .rightnav-list li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .rightnav-list li a:hover {
+            color: grey;
+        }
+        .discord-button {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .discord-button img {
+            height: 20px;
+            width: 80px;
+            margin-right: 5px;
+        }
+        /* Styles for Container */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Styles for Issue Post */
+        .issue-post {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .issue-post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .issue-post-header h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .issue-post-content {
+            color: #666;
+        }
+
+        /* Styles for Comments */
+        .comments {
+            margin-left: 20px;
+        }
+
+        .comment {
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comment-content {
+            color: #666;
+        }
+
+        .reply-btn {
+            background-color: transparent;
+            border: none;
+            color: blue;
+            cursor: pointer;
+        }
+
+        /* Styles for Mark as Important */
+        .important-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/logo.png" alt="Logo">
+        </div>
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/mods/">Mods</a></li>
+            <li><a href="/data-packs/">Data Packs</a></li>
+            <li><a href="/texture-packs/">Texture/Resource Packs</a></li>
+            <li><a href="/issues/">Issues</a></li>
+            <li><a href="/login/">Login/Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Issues</h1>
+
+        <!-- Issue Post -->
+        <div class="issue-post">
+            <div class="issue-post-header">
+                <h3>Issue Title</h3>
+                <button class="important-btn">Mark as Important</button>
+            </div>
+            <p class="issue-post-content">Issue Description goes here...</p>
+
+            <!-- Comments -->
+            <div class="comments">
+                <div class="comment">
+                    <p class="comment-content">Comment content goes here...</p>
+                    <button class="reply-btn">Reply</button>
+                </div>
+                <!-- Nested Comments -->
+                <div class="comment">
+                    <p class="comment-content">Nested comment content goes here...</p>
+                    <button class="reply-btn">Reply</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create New Post Section -->
+        <h2>Create a New Post</h2>
+        <form>
+            <label for="post-title">Title:</label><br>
+            <input type="text" id="post-title" name="post-title"><br><br>
+            <label for="post-content">Content:</label><br>
+            <textarea id="post-content" name="post-content" rows="4" cols="50"></textarea><br><br>
+            <button type="submit">Create Post</button>
+        </form>
+    </div>
+</body>
+</html>
