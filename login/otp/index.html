@@ -193,13 +193,36 @@
         <div class="login-form">
             <div class="login-option">
                 <h2>Login with Email and OTP</h2>
-                <input type="email" placeholder="Email">
-                <button class="send-otp-button">Send OTP</button>
-                <input type="text" placeholder="Enter OTP">
+                <input type="email" id="emailInput" placeholder="Email">
+                <button class="send-otp-button" onclick="sendOTP()">Send OTP</button>
+                <input type="text" id="otpInput" placeholder="Enter OTP">
             </div>
-            <button href="/login/", class="try-another-button">Try Another Way</button>
+            <button class="try-another-button" onclick="goBack()">Try Another Way</button>
             <button class="login-button">Login</button>
         </div>
     </div>
+
+    <script>
+        function sendOTP() {
+            var email = document.getElementById("emailInput").value;
+            var otp = generateOTP();
+
+            // Send the email with OTP to the provided email address
+            // Replace this with your server-side logic to send email
+            console.log("Email sent to " + email + " with OTP: " + otp);
+
+            // Assuming the OTP is successfully sent, display a message to the user
+            alert("An OTP has been sent to your email address.");
+        }
+
+        function generateOTP() {
+            // Generate a random 6-digit OTP
+            return Math.floor(100000 + Math.random() * 900000);
+        }
+
+        function goBack() {
+            window.location.href = "/login/";
+        }
+    </script>
 </body>
 </html>
