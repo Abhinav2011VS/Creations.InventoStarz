@@ -97,9 +97,9 @@
         <a href="/about/">About</a>
         <a href="/mods/">Mods</a>
         <a href="/data-packs/">Data Packs</a>
-        <a href="/texture-packs//">Texture/Resource Packs</a>
-        <div class="dropdown">
-            <button>More...</button>
+        <a href="/texture-packs/">Texture/Resource Packs</a>
+        <div class="dropdown" id="moreDropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown()">More...</a>
             <div class="dropdown-content">
                 <a href="/shaders/">Shaders</a>
                 <a href="/worlds/">Worlds</a>
@@ -123,5 +123,12 @@
         <p>Explore my creations and enhance your gameplay with my carefully crafted additions.</p>
         <p>Join me on our journey to make Minecraft even more enjoyable and exciting!</p>
     </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("moreDropdown").getElementsByClassName("dropdown-content")[0];
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </body>
 </html>
