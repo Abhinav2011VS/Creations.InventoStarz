@@ -36,6 +36,20 @@
             background-color: #ddd;
             color: black;
         }
+        .navbar .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
         .discord-button {
             position: absolute;
             top: 1em;
@@ -70,16 +84,21 @@
 <body>
     <div class="navbar">
         <a href="/">Home</a>
-        <a href="/texture-packs/">Texture Packs/Resource Packs</a>
-        <a href="/data-packs/">Data Packs</a>
-        <a href="/mods/">Mods</a>
-        <a href="/shaders/">Shaders</a>
-        <a href="/worlds/">Worlds</a>
-        <a href="/addons/">Addons</a>
-        <a href="/bukkit-plugins/">Bukkit Plugins</a>
-        <a href="/addons/">Customizations</a>
-        <a href="/mod-packs/">ModPacks</a>
         <a href="/about/">About</a>
+        <div class="dropdown">
+            <a href="#">More...</a>
+            <div class="dropdown-content">
+                <a href="/mods/">Mods</a>
+                <a href="/texture-packs/">Texture Packs/Resource Packs</a>
+                <a href="/data-packs/">Data Packs</a>
+                <a href="/shaders/">Shaders</a>
+                <a href="/worlds/">Worlds</a>
+                <a href="/addons/">Addons</a>
+                <a href="/bukkit-plugins/">Bukkit Plugins</a>
+                <a href="/addons/">Customizations</a>
+                <a href="/mod-packs/">ModPacks</a>
+            </div>
+        </div>
         <div class="discord-button">
             <a href="https://discord.gg/QNmntYFh" target="_blank">
                 <img src="/Discord.png" alt="Discord Page">
