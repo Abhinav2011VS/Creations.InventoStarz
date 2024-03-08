@@ -67,3 +67,17 @@
 .login-button:hover {
     background-color: #218838;
 }
+
+.try-another-button {
+    background-color: #ffc107;
+    color: #212529;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.try-another-button:hover {
+    background-color: #e0a800;
+}
