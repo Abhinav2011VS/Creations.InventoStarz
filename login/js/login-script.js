@@ -25,6 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tryAnotherButton.addEventListener('click', function() {
         // Redirect to another login option
-        window.location.href = 'another-login-option.html';
+        window.location.href = '/login/otp/';
     });
 });
