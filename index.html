@@ -222,7 +222,7 @@
         </ul>
         <ul class="rightNav">
             <a href="/login/"><lmno>Login/Sign Up</lmno></a>
-            <a><img src="setting.png" alt="Settings" class="settings-icon"></a>
+            <a><img src="setting.png" alt="Settings" class="settings-icon" id="settings-btn"></a>
         </ul>
     </nav>
     <div class="container">
@@ -304,17 +304,11 @@
         // JavaScript for handling modal popup
         document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('settings-popup');
-    const settingsIcon = document.querySelector('.settings-icon');
+    const settingsBtn = document.getElementById('settings-btn');
     const closePopupBtn = document.querySelector('.popup-content .close');
 
-    settingsIcon.addEventListener('click', function() {
-        // Get position of login/signup link
-        const loginSignupPosition = document.querySelector('.nav-list li:last-child').getBoundingClientRect();
-
-        // Set position of popup
+    settingsBtn.addEventListener('click', function() {
         popup.style.display = 'block';
-        popup.style.top = loginSignupPosition.top + 'px';
-        popup.style.left = loginSignupPosition.right + 'px';
     });
 
     closePopupBtn.addEventListener('click', function() {
