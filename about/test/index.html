@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mods - InventoStarz</title>
+    <title>Login - InventoStarz</title>
     <link rel="icon" href="/favicon.png">
     <style>
         lmno {
             color: white;
             text-decoration: none;
         }
-        pqr {
-            text-align:center;
-        }
+
         body {
             font-family: Arial, sans-serif;
             background-image: url('https://www.minecraft.net/content/dam/games/minecraft/key-art/Vanilla-PMP_Collection-Carousel-0_Buzzy-Bees_1280x768.jpg');
@@ -22,6 +20,7 @@
             margin: 0;
             padding: 0;
         }
+
         .dropbtn {
             background-color: transparent;
             color: white;
@@ -48,15 +47,17 @@
             opacity: 0.7; /* Adjust opacity for dropdown content */
         }
 
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
+            .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+
+        .dropdown:hover .dropdown-content {
             display: block;
         }
-
-
-        .dropdown:hover .dropdown-content {display: block;}
 
         * {
             margin: 0;
@@ -87,12 +88,11 @@
             align-items: center;
         }
 
-        .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            transition: filter 0.3s ease-in-out;
-        }
+            .logo img {
+                width: 180px;
+                border-radius: 50px;
+                transition: filter 0.3s ease-in-out;
+            }
 
         .nav-list li {
             list-style: none;
@@ -100,15 +100,15 @@
             transition: filter 0.3s ease-in-out;
         }
 
-        .nav-list li a {
-            text-decoration: none;
-            color: white;
-            transition: filter 0.3s ease-in-out;
-        }
+            .nav-list li a {
+                text-decoration: none;
+                color: white;
+                transition: filter 0.3s ease-in-out;
+            }
 
-        .nav-list li a:hover {
-            filter: brightness(120%);
-        }
+                .nav-list li a:hover {
+                    filter: brightness(120%);
+                }
 
         .rightnav {
             width: 70%;
@@ -126,14 +126,15 @@
             padding: 26px 30px;
         }
 
-        .rightnav-list li a {
-            text-decoration: none;
-            color: white;
-        }
+            .rightnav-list li a {
+                text-decoration: none;
+                color: white;
+            }
 
-        .rightnav-list li a:hover {
-            color: grey;
-        }
+                .rightnav-list li a:hover {
+                    color: grey;
+                }
+
         .discord-button {
             position: absolute;
             top: 1em;
@@ -141,11 +142,13 @@
             display: flex;
             align-items: center;
         }
-        .discord-button img {
-            height: 20px;
-            width: 80px;
-            margin-right: 5px;
-        }
+
+            .discord-button img {
+                height: 20px;
+                width: 80px;
+                margin-right: 5px;
+            }
+
         .container {
             max-width: 800px;
             margin: 120px auto 50px;
@@ -153,37 +156,11 @@
             padding: 20px;
             border-radius: 20px; /* Rounded corners */
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center horizontally */
-            flex-wrap: wrap;
-            flex-direction: column; /* Stack items vertically */
-        }
-
-        .sub-container {
-            min-width: 650px;
-            max-width: 700px;
-            max-height: 400px;
-            margin: 20px auto; /* Adjust margin */
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 20px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            position: relative; /* Add relative positioning */
-        }
-        .sub-container img {
-            max-width: 200px;
-            margin-right: 20px;
-            border-radius: 10px;
         }
 
         h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 20px; /* Add margin bottom */
         }
 
         p {
@@ -191,42 +168,58 @@
             color: #666;
             margin-bottom: 1em;
         }
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* Translucent white background */
+            z-index: 9999;
+        }
 
-        .explore-button {
+        .popup-content {
             position: absolute;
-            top: 50%; /* Adjust to center vertically */
-            right: 50px; /* Move the button 50px to the left */
-            transform: translateY(-50%); /* Adjust vertical alignment */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff; /* White background for popup content */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for popup */
         }
 
-        .explore-button a {
-            background-color: rgb(50, 205, 50);
-            color: black;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: 1px solid white;
-            border-radius: 15px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+            .popup-content h2 {
+                margin-bottom: 10px;
+            }
 
-        .explore-button a:hover {
-            background-color: rgb(34, 139, 34);
-            color: black;
+            .popup-content .close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+            }
+
+        .settings-icon {
+            width: 30px; /* Adjust size as needed */
+            height: 30px; /* Adjust size as needed */
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <ul class="nav-list">
-            <div class="logo"><a href="/"><img src="/data/logo/logo.png" alt="Logo"></a></div>
+            <div class="logo"><a href="/"><img src="/data/logo/logo.png" style="width:40px;height:40px;"></a></div>
             <li><a href="/">Home</a></li>
             <li><a href="/about/">About</a></li>
             <li><a href="/mods/">Mods</a></li>
             <li><a href="/data-packs/">Data Packs</a></li>
-            <li><a href="/texture-packs/">Texture/Resource Packs</a></li>
+            <li><a href="/texture-packs/">Testure/Resource Packs</a></li>
             <div class="dropdown" style="float:right;">
-                <button class="dropbtn"><lmno>More...</lmno></button>
+                <button class="dropbtn"><lmn>More...</lmn></button>
                 <div class="dropdown-content" style="right:0;">
                     <a href="/shaders/">Shaders</a>
                     <a href="/worlds/">Worlds</a>
@@ -239,43 +232,23 @@
         </ul>
         <ul class="rightNav">
             <a href="/login/"><lmno>Login/Sign Up</lmno></a>
+            <a><img src="setting.png" alt="Settings" class="settings-icon" id="settings-btn"></a>
         </ul>
     </nav>
     <div class="container">
-        <h1>My Mods</h1>
-        <div class="sub-container">
-            <img src="/mods/Emeralds And Rubies Mod.png" alt="Image">
-            <div>
-                <h3><pqr>Emerald And Rubies</pqr></h3>
-                <p>The game changing emeralds<br> and rubies are coming</p>
-            </div>
-            <div class="explore-button">
-                <a href="/mods/ear/">Explore</a>
-            </div>
-        </div>
+        <h1>Login to InventoStarz</h1>
+        <form action="/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
     </div>
     <script>
-        // JavaScript for making dropdown functional on hover and click
-        document.addEventListener('DOMContentLoaded', function() {
-            var dropdown = document.querySelector('.dropdown');
-            var dropdownContent = dropdown.querySelector('.dropdown-content');
-
-            dropdown.addEventListener('mouseover', function() {
-                dropdownContent.style.display = 'block';
-            });
-
-            dropdown.addEventListener('mouseout', function() {
-                dropdownContent.style.display = 'none';
-            });
-
-            dropdown.querySelector('button').addEventListener('click', function() {
-                if (dropdownContent.style.display === 'block') {
-                    dropdownContent.style.display = 'none';
-                } else {
-                    dropdownContent.style.display = 'block';
-                }
-            });
-        });
+        // Any JavaScript specific to the login page
     </script>
 </body>
 </html>
