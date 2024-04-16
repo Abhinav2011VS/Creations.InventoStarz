@@ -192,6 +192,11 @@
     right: 10px;
     cursor: pointer;
 }
+        .settings-icon {
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -217,6 +222,7 @@
         </ul>
         <ul class="rightNav">
             <a href="/login/"><lmno>Login/Sign Up</lmno></a>
+            <li><img src="setting.png" alt="Settings" class="settings-icon"></li>
         </ul>
     </nav>
     <div class="container">
@@ -297,24 +303,30 @@
 
         // JavaScript for handling modal popup
         document.addEventListener('DOMContentLoaded', function() {
-            const popup = document.getElementById('settings-popup');
-            const openPopupBtn = document.querySelector('.settings-dropdown .dropbtn');
-            const closePopupBtn = document.querySelector('.popup-content .close');
+    const popup = document.getElementById('settings-popup');
+    const settingsIcon = document.querySelector('.settings-icon');
+    const closePopupBtn = document.querySelector('.popup-content .close');
 
-            openPopupBtn.addEventListener('click', function() {
-                popup.style.display = 'block';
-            });
+    settingsIcon.addEventListener('click', function() {
+        // Get position of login/signup link
+        const loginSignupPosition = document.querySelector('.nav-list li:last-child').getBoundingClientRect();
 
-            closePopupBtn.addEventListener('click', function() {
-                popup.style.display = 'none';
-            });
+        // Set position of popup
+        popup.style.display = 'block';
+        popup.style.top = loginSignupPosition.top + 'px';
+        popup.style.left = loginSignupPosition.right + 'px';
+    });
 
-            window.addEventListener('click', function(event) {
-                if (event.target === popup) {
-                    popup.style.display = 'none';
-                }
-            });
-        });
+    closePopupBtn.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
     </script>
 </body>
 </html>
