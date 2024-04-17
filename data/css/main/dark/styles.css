@@ -267,6 +267,7 @@ input:checked + .dark-mode-slider-thumb:before {
 
 .language-select-container {
     margin-bottom: 15px;
+    color: white;
 }
 
 .language-select-container select {
@@ -275,4 +276,5 @@ input:checked + .dark-mode-slider-thumb:before {
     background-color: #272727;
     border: none;
     outline: none;
+    color: white;
 }
