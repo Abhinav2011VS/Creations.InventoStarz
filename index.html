@@ -88,6 +88,7 @@
             const stylesheetLink = document.getElementById('stylesheet');
             if (isDarkModeEnabled) {
                 stylesheetLink.href = '/data/css/main/dark/styles.css';
+                document.body.classList.add('dark-mode');
             } else {
                 stylesheetLink.href = '/data/css/main/light/styles.css';
             }
