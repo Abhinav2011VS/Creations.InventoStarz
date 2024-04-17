@@ -5,203 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InventoStarz - Official Website</title>
     <link rel="icon" href="/favicon.png">
-    <style>
-        lmno {
-            color: white;
-            text-decoration: none;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://www.minecraft.net/content/dam/games/minecraft/key-art/Vanilla-PMP_Collection-Carousel-0_Buzzy-Bees_1280x768.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-        }
-        .dropbtn {
-            background-color: transparent;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.8); /* Adjust opacity for navbar */
-            backdrop-filter: blur(10px); /* Apply blur effect */
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            opacity: 0.7; /* Adjust opacity for dropdown content */
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-
-        .dropdown:hover .dropdown-content {display: block;}
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: sticky;
-            top: 0;
-            size: 10%;
-            cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity for navbar */
-            backdrop-filter: blur(10px); /* Apply blur effect */
-        }
-
-        .nav-list {
-            width: 70%;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo img {
-            width: 180px;
-            border-radius: 50px;
-            transition: filter 0.3s ease-in-out;
-        }
-
-        .nav-list li {
-            list-style: none;
-            padding: 26px 30px;
-            transition: filter 0.3s ease-in-out;
-        }
-
-        .nav-list li a {
-            text-decoration: none;
-            color: white;
-            transition: filter 0.3s ease-in-out;
-        }
-
-        .nav-list li a:hover {
-            filter: brightness(120%);
-        }
-
-        .rightnav {
-            width: 70%;
-            text-align: right;
-            align-items: center;
-            display: flex;
-            font-decoration: none;
-            color: white;
-            font-family: arial;
-            font-size: 16px;
-        }
-
-        .rightnav-list li {
-            list-style: none;
-            padding: 26px 30px;
-        }
-
-        .rightnav-list li a {
-            text-decoration: none;
-            color: white;
-        }
-
-        .rightnav-list li a:hover {
-            color: grey;
-        }
-        .discord-button {
-            position: absolute;
-            top: 1em;
-            right: 1em;
-            display: flex;
-            align-items: center;
-        }
-        .discord-button img {
-            height: 20px;
-            width: 80px;
-            margin-right: 5px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 120px auto 50px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 20px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        p {
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 1em;
-        }
-        /* Popup styles */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.5); /* Translucent white background */
-            z-index: 9999;
-        }
-
-        .popup-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff; /* White background for popup content */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for popup */
-        }
-
-        .popup-content h2 {
-            margin-bottom: 10px;
-        }
-
-        .popup-content .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-        .settings-icon {
-            width: 30px; /* Adjust size as needed */
-            height: 30px; /* Adjust size as needed */
-            cursor: pointer;
-        }
-        body.dark-mode {
-            background-color: #1e1e1e;
-            color: #fff;
-        }
-    </style>
+    <link id="stylesheet" rel="stylesheet" href="/data/css/main/light/styles.css">
 </head>
 <body>
     <nav class="navbar">
@@ -291,36 +95,54 @@
 
     <script src="/public/js/main.js"></script>
     <script>
-        // JavaScript for Dark Mode toggle
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        darkModeToggle.addEventListener('change', function () {
-            if (this.checked) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if dark mode is enabled in local storage
+            const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
 
-        // JavaScript for Language Selection with auto-translation
-        const languageSelect = document.getElementById('language-select');
-        languageSelect.addEventListener('change', function () {
-            const language = this.value;
-            // Implement auto-translation logic based on selected language
-            // For demo purposes, let's just change the placeholder text of the navigation links
-            const navLinks = document.querySelectorAll('.nav-list li a');
-            navLinks.forEach(link => {
-                if (language === 'fr') {
-                    link.textContent = 'Accueil';
-                } else if (language === 'es') {
-                    link.textContent = 'Inicio';
+            // Update stylesheet based on dark mode state
+            const stylesheetLink = document.getElementById('stylesheet');
+            if (isDarkModeEnabled) {
+                stylesheetLink.href = '/data/css/main/dark/styles.css';
+            } else {
+                stylesheetLink.href = '/data/css/main/light/styles.css';
+            }
+
+            // Event listener for dark mode toggle
+            darkModeToggle.addEventListener('change', function () {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    // Store dark mode state in local storage
+                    localStorage.setItem('darkModeEnabled', 'true');
+                    // Update stylesheet link
+                    stylesheetLink.href = '/data/css/main/dark/styles.css';
                 } else {
-                    link.textContent = 'Home';
+                    document.body.classList.remove('dark-mode');
+                    // Store dark mode state in local storage
+                    localStorage.setItem('darkModeEnabled', 'false');
+                    // Update stylesheet link
+                    stylesheetLink.href = '/data/css/main/light/styles.css';
                 }
             });
-        });
 
-        // JavaScript for handling modal popup
-        document.addEventListener('DOMContentLoaded', function () {
+            // JavaScript for Language Selection with auto-translation
+            const languageSelect = document.getElementById('language-select');
+            languageSelect.addEventListener('change', function () {
+                const language = this.value;
+                // Implement auto-translation logic based on selected language
+                // For demo purposes, let's just change the placeholder text of the navigation links
+                const navLinks = document.querySelectorAll('.nav-list li a');
+                navLinks.forEach(link => {
+                    if (language === 'fr') {
+                        link.textContent = 'Accueil';
+                    } else if (language === 'es') {
+                        link.textContent = 'Inicio';
+                    } else {
+                        link.textContent = 'Home';
+                    }
+                });
+            });
+
+            // JavaScript for handling modal popup
             const settingsBtn = document.getElementById('settings-btn');
             const closePopupBtns = document.querySelectorAll('.popup-content .close');
             const modals = document.querySelectorAll('.popup');
