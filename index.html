@@ -26,35 +26,37 @@
         .language-select-container {
             position: relative;
             display: inline-block;
+            margin-right: 20px;
         }
 
         .language-select {
             appearance: none;
-            padding: 8px 24px;
+            padding: 10px 20px;
             font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #fff;
+            border: none;
+            border-radius: 20px;
+            background-color: #f5f5f5;
+            color: #333;
             cursor: pointer;
+            outline: none;
         }
 
             .language-select:focus {
-                outline: none;
-                border-color: #555;
+                background-color: #ddd;
             }
 
-        .language-select-container::after {
-            content: '\25BC';
-            font-size: 16px;
-            color: #555;
+        .language-select-arrow {
             position: absolute;
             top: 50%;
-            right: 10px;
+            right: 12px;
             transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #666;
             pointer-events: none;
         }
-
-        /* Additional CSS can be added here */
     </style>
 </head>
 <body>
@@ -102,6 +104,7 @@
                     <option value="fr">French</option>
                     <option value="es">Spanish</option>
                 </select>
+                <span class="language-select-arrow"></span>
             </div>
         </div>
     </div>
@@ -124,88 +127,11 @@
                     <option value="fr">French</option>
                     <option value="es">Spanish</option>
                 </select>
+                <span class="language-select-arrow"></span>
             </div>
         </div>
     </div>
 
-    <script src="/public/js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Check if dark mode is enabled in local storage
-            const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
-
-            // Update stylesheet based on dark mode state
-            const stylesheetLink = document.getElementById('stylesheet');
-            if (isDarkModeEnabled) {
-                stylesheetLink.href = '/data/css/main/dark/styles.css';
-            } else {
-                stylesheetLink.href = '/data/css/main/light/styles.css';
-            }
-
-            // Event listener for dark mode toggle
-            const darkModeToggle = document.getElementById('dark-mode-toggle');
-            darkModeToggle.checked = isDarkModeEnabled; // Set the initial state of the toggle
-            darkModeToggle.addEventListener('change', function () {
-                if (this.checked) {
-                    document.body.classList.add('dark-mode');
-                    // Store dark mode state in local storage
-                    localStorage.setItem('darkModeEnabled', 'true');
-                    // Update stylesheet link
-                    stylesheetLink.href = '/data/css/main/dark/styles.css';
-                } else {
-                    document.body.classList.remove('dark-mode');
-                    // Store dark mode state in local storage
-                    localStorage.setItem('darkModeEnabled', 'false');
-                    // Update stylesheet link
-                    stylesheetLink.href = '/data/css/main/light/styles.css';
-                }
-            });
-
-            // JavaScript for Language Selection with auto-translation
-            const languageSelect = document.getElementById('language-select');
-            languageSelect.addEventListener('change', function () {
-                const language = this.value;
-                // Implement auto-translation logic based on selected language
-                // For demo purposes, let's just change the placeholder text of the navigation links
-                const navLinks = document.querySelectorAll('.nav-list li a');
-                navLinks.forEach(link => {
-                    if (language === 'fr') {
-                        link.textContent = 'Accueil';
-                    } else if (language === 'es') {
-                        link.textContent = 'Inicio';
-                    } else {
-                        link.textContent = 'Home';
-                    }
-                });
-            });
-
-            // JavaScript for handling modal popup
-            const settingsBtn = document.getElementById('settings-btn');
-            const closePopupBtns = document.querySelectorAll('.popup-content .close');
-            const modals = document.querySelectorAll('.popup');
-
-            settingsBtn.addEventListener('click', function () {
-                document.getElementById('settings-modal').style.display = 'block';
-            });
-
-            closePopupBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    modals.forEach(modal => {
-                        modal.style.display = 'none';
-                    });
-                });
-            });
-
-            window.addEventListener('click', function (event) {
-                modals.forEach(modal => {
-                    if (event.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-    </script>
-
+    <script src="/data/js/main/script.js"></script>
 </body>
 </html>
