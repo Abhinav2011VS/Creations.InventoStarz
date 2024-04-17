@@ -42,39 +42,17 @@
         <p>Join me on our journey to make Minecraft even more enjoyable and exciting!</p>
         <p>Do Not Worry If you think somethings wrong with the Login/Sign Up Page. It is still being coded/fixed.</p>
     </div>
-    <script>
-        // JavaScript for making dropdown functional on hover and click
-        document.addEventListener('DOMContentLoaded', function () {
-            var dropdown = document.querySelector('.dropdown');
-            var dropdownContent = dropdown.querySelector('.dropdown-content');
-
-            dropdown.addEventListener('mouseover', function () {
-                dropdownContent.style.display = 'block';
-            });
-
-            dropdown.addEventListener('mouseout', function () {
-                dropdownContent.style.display = 'none';
-            });
-
-            dropdown.querySelector('button').addEventListener('click', function () {
-                if (dropdownContent.style.display === 'block') {
-                    dropdownContent.style.display = 'none';
-                } else {
-                    dropdownContent.style.display = 'block';
-                }
-            });
-        });
-    </script>
     <div id="language-modal" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
             <h2>Language Selection</h2>
-            <label for="language-select">Choose a language:</label>
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <option value="es">Spanish</option>
-            </select>
+            <div class="language-select-container">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                </select>
+            </div>
         </div>
     </div>
     <!-- Settings modal -->
@@ -82,15 +60,21 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <center><h2>Settings</h2></center>
-            <label for="dark-mode-toggle">Dark Mode:</label>
-            <input type="checkbox" id="dark-mode-toggle">
-            <br>
-            <label for="language-select">Language:</label>
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <option value="es">Spanish</option>
-            </select>
+            <div class="dark-mode-toggle-container">
+                <span>Dark Mode:</span>
+                <label class="dark-mode-slider">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="dark-mode-slider-thumb"></span>
+                </label>
+            </div>
+            <div class="language-select-container">
+                <label for="language-select">Language:</label>
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                </select>
+            </div>
         </div>
     </div>
 
