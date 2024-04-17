@@ -160,43 +160,47 @@
             margin-bottom: 1em;
         }
         /* Popup styles */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Translucent white background */
-    z-index: 9999;
-}
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* Translucent white background */
+            z-index: 9999;
+        }
 
-.popup-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff; /* White background for popup content */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for popup */
-}
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff; /* White background for popup content */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for popup */
+        }
 
-.popup-content h2 {
-    margin-bottom: 10px;
-}
+        .popup-content h2 {
+            margin-bottom: 10px;
+        }
 
-.popup-content .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-}
+        .popup-content .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
         .settings-icon {
-    width: 30px; /* Adjust size as needed */
-    height: 30px; /* Adjust size as needed */
-    cursor: pointer;
-}
+            width: 30px; /* Adjust size as needed */
+            height: 30px; /* Adjust size as needed */
+            cursor: pointer;
+        }
+        body.dark-mode {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -235,19 +239,19 @@
     </div>
     <script>
         // JavaScript for making dropdown functional on hover and click
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var dropdown = document.querySelector('.dropdown');
             var dropdownContent = dropdown.querySelector('.dropdown-content');
 
-            dropdown.addEventListener('mouseover', function() {
+            dropdown.addEventListener('mouseover', function () {
                 dropdownContent.style.display = 'block';
             });
 
-            dropdown.addEventListener('mouseout', function() {
+            dropdown.addEventListener('mouseout', function () {
                 dropdownContent.style.display = 'none';
             });
 
-            dropdown.querySelector('button').addEventListener('click', function() {
+            dropdown.querySelector('button').addEventListener('click', function () {
                 if (dropdownContent.style.display === 'block') {
                     dropdownContent.style.display = 'none';
                 } else {
@@ -256,6 +260,19 @@
             });
         });
     </script>
+    <div id="language-modal" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Language Selection</h2>
+            <label for="language-select">Choose a language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+    </div>
+    <!-- Settings modal -->
     <div id="settings-modal" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
@@ -272,10 +289,11 @@
         </div>
     </div>
 
+    <script src="/public/js/main.js"></script>
     <script>
         // JavaScript for Dark Mode toggle
         const darkModeToggle = document.getElementById('dark-mode-toggle');
-        darkModeToggle.addEventListener('change', function() {
+        darkModeToggle.addEventListener('change', function () {
             if (this.checked) {
                 document.body.classList.add('dark-mode');
             } else {
@@ -285,7 +303,7 @@
 
         // JavaScript for Language Selection with auto-translation
         const languageSelect = document.getElementById('language-select');
-        languageSelect.addEventListener('change', function() {
+        languageSelect.addEventListener('change', function () {
             const language = this.value;
             // Implement auto-translation logic based on selected language
             // For demo purposes, let's just change the placeholder text of the navigation links
@@ -302,25 +320,31 @@
         });
 
         // JavaScript for handling modal popup
-        document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.getElementById('settings-popup');
-    const settingsBtn = document.getElementById('settings-btn');
-    const closePopupBtn = document.querySelector('.popup-content .close');
+        document.addEventListener('DOMContentLoaded', function () {
+            const settingsBtn = document.getElementById('settings-btn');
+            const closePopupBtns = document.querySelectorAll('.popup-content .close');
+            const modals = document.querySelectorAll('.popup');
 
-    settingsBtn.addEventListener('click', function() {
-        popup.style.display = 'block';
-    });
+            settingsBtn.addEventListener('click', function () {
+                document.getElementById('settings-modal').style.display = 'block';
+            });
 
-    closePopupBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
+            closePopupBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    modals.forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                });
+            });
 
-    window.addEventListener('click', function(event) {
-        if (event.target === popup) {
-            popup.style.display = 'none';
-        }
-    });
-});
+            window.addEventListener('click', function (event) {
+                modals.forEach(modal => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
