@@ -1,5 +1,5 @@
 {
-  "name": "Creations-InventoStarz",
+  "name": "creations-inventostarz",
   "version": "1.0.0",
   "description": "InventoStarz Creations",
   "main": "server/app.js",
@@ -8,7 +8,11 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "express": "^4.17.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
     "jsonwebtoken": "^8.5.1"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
