@@ -6,6 +6,22 @@
     <title>InventoStarz - Official Website</title>
     <link rel="icon" href="/favicon.png">
     <link id="stylesheet" rel="stylesheet" href="/data/css/main/light/styles.css">
+    <style>
+        /* Smooth transitions for all elements */
+        * {
+            transition: all 0.3s ease;
+        }
+
+        /* Specific transition for changing background color */
+        body {
+            transition-property: background-color;
+        }
+
+        /* Specific transition for changing font color */
+        .nav-list li a {
+            transition-property: color;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -88,7 +104,6 @@
             const stylesheetLink = document.getElementById('stylesheet');
             if (isDarkModeEnabled) {
                 stylesheetLink.href = '/data/css/main/dark/styles.css';
-                document.body.classList.add('dark-mode');
             } else {
                 stylesheetLink.href = '/data/css/main/light/styles.css';
             }
@@ -155,6 +170,7 @@
                 });
             });
         });
+
     </script>
 
 </body>
