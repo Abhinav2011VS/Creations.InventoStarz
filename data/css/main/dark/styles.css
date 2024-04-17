@@ -274,17 +274,25 @@ input:checked + .dark-mode-slider-thumb:before {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
-
+/* Style for language selection dropdown */
 .language-select-container {
-    margin-bottom: 15px;
-    color: white;
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
 }
 
-.language-select-container select {
-    border-radius: 5px;
-    padding: 5px;
-    background-color: #272727;
+.language-select {
+    appearance: none;
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
+    border-radius: 20px;
+    background-color: #272727;
+    color: #cfcfcf;
+    cursor: pointer;
     outline: none;
-    color: white;
+}
+
+.language-select:focus {
+    background-color: #343434;
 }
