@@ -201,6 +201,8 @@ p {
 }
 
 .settings-icon-wrapper {
-    display: inline-block;
-    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    right: 20px; /* Adjust the distance from the right edge */
+    transform: translateY(-50%);
 }
