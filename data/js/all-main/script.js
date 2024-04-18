@@ -20,41 +20,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Check if the page is being viewed with view-source protocol
-if (window.location.protocol === 'view-source:') {
-    window.location.href = '/';
+// Function to display popup
+function displayPopup(message) {
+    alert(message);
 }
 
-// Disable right-clicking and show popup with message "Right Click Disabled"
+// Event listener for context menu (right-click)
 document.addEventListener('contextmenu', function (event) {
+    event.preventDefault(); // Prevent default right-click behavior
+    displayPopup('Right Click is Disabled');
+});
+
+// Event listener for keydown (keyboard shortcuts)
+document.addEventListener('keydown', function (event) {
+    // Disable Ctrl+U
+    if ((event.ctrlKey || event.metaKey) && event.key === 'u') {
+        event.preventDefault();
+        displayPopup('Viewing Source is Disabled');
+    }
+
+    // Disable F12 and Fn+F12
+    if (event.key === 'F12' || (event.key === 'F12' && event.ctrlKey) || (event.key === 'F12' && event.altKey)) {
+        event.preventDefault();
+        displayPopup('Inspection is Not Allowed');
+    }
+});
+
+// Event listener for beforeunload (preventing navigation)
+window.addEventListener('beforeunload', function (event) {
     event.preventDefault();
-    document.getElementById('rightClickPopup').textContent = "Right Click Disabled";
-    document.getElementById('rightClickPopup').style.display = 'block';
+    event.returnValue = ''; // For older browsers
 });
 
-// Disable Ctrl + U and show popup with message "View Source Disabled"
-document.addEventListener('keydown', function (event) {
-    if (event.ctrlKey && event.key === 'u') {
-        event.preventDefault();
-        document.getElementById('rightClickPopup').textContent = "View Source Disabled";
-        document.getElementById('rightClickPopup').style.display = 'block';
-    }
-});
-
-// Disable Fn + F12 and show popup with message "Inspect Element Disabled"
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'F12' && event.code === 'F12') {
-        event.preventDefault();
-        document.getElementById('rightClickPopup').textContent = "Inspect Element Disabled";
-        document.getElementById('rightClickPopup').style.display = 'block';
-    }
-});
-
-// Disable F12 and show popup with message "Inspect Element Disabled"
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'F12' && event.code === 'F12') {
-        event.preventDefault();
-        document.getElementById('rightClickPopup').textContent = "Inspect Element Disabled";
-        document.getElementById('rightClickPopup').style.display = 'block';
-    }
-});
+// Redirect if view-source: protocol is used
+if (window.location.href.startsWith('view-source:')) {
+    window.location.href = 'https://creations-inventostarz.pages.dev';
+}
