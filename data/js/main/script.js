@@ -42,9 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
         translateNavbar(language); // Translate navbar when language changes
         // Store selected language in local storage
         localStorage.setItem('selectedLanguage', language);
+        console.log('Selected language:', language);
     });
 
     function translateNavbar(language) {
+        console.log('Translating navbar to:', language);
         const navbarTranslations = {
             'Home': { 'en': 'Home', 'fr': 'Accueil', 'es': 'Inicio' },
             'About': { 'en': 'About', 'fr': 'À Propos', 'es': 'Acerca De' },
