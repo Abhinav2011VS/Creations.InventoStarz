@@ -31,10 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // JavaScript for Language Selection with auto-translation
     const languageSelect = document.getElementById('language-select');
+    // Set the initial language selection based on stored value
+    const storedLanguage = localStorage.getItem('selectedLanguage');
+    if (storedLanguage) {
+        languageSelect.value = storedLanguage;
+    }
     languageSelect.addEventListener('change', function () {
         const language = this.value;
         // Implement auto-translation logic based on selected language
-        // For demo purposes, let's just change the placeholder text of the navigation links
         const navLinks = document.querySelectorAll('.nav-list li a');
         navLinks.forEach(link => {
             if (language === 'fr') {
@@ -45,6 +49,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 link.textContent = 'Home';
             }
         });
+
+        // Translate other navbar items
+        const navbarTranslations = {
+            'About': { 'en': 'About', 'fr': 'À Propos', 'es': 'Acerca De' },
+            'Mods': { 'en': 'Mods', 'fr': 'Mods', 'es': 'Modificaciones' },
+            'Data Packs': { 'en': 'Data Packs', 'fr': 'Packs De Données', 'es': 'Paquetes De Datos' },
+            'Texture/Resource Packs': { 'en': 'Texture/Resource Packs', 'fr': 'Packs De Textures', 'es': 'Paquetes De Texturas' },
+            'Shaders': { 'en': 'Shaders', 'fr': 'Shaders', 'es': 'Sombreadores' },
+            'Worlds': { 'en': 'Worlds', 'fr': 'Mondes', 'es': 'Mundos' },
+            'Addons': { 'en': 'Addons', 'fr': 'Modules Complémentaires', 'es': 'Complementos' },
+            'Bukkit Plugins': { 'en': 'Bukkit Plugins', 'fr': 'Plugins Bukkit', 'es': 'Complementos De Bukkit' },
+            'Customizations': { 'en': 'Customizations', 'fr': 'Personnalisations', 'es': 'Personalizaciones' },
+            'Mod Packs': { 'en': 'Mod Packs', 'fr': 'Packs De Modules', 'es': 'Paquetes De Modificaciones' }
+        };
+
+        Object.keys(navbarTranslations).forEach(item => {
+            const translation = navbarTranslations[item][language];
+            const navItem = document.querySelector('.nav-list li a[href="/' + item.toLowerCase().replace(/\s+/g, '-') + '/"]');
+            if (navItem) {
+                navItem.textContent = translation;
+            }
+        });
+
+        // Store selected language in local storage
+        localStorage.setItem('selectedLanguage', language);
     });
 
     // JavaScript for handling modal popup
