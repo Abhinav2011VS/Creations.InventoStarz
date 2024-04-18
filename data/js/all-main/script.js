@@ -46,6 +46,6 @@ function showPopup(message) {
         setTimeout(function () {
             popupContainer.style.display = "none";
             popupContainer.style.opacity = 1;
-        }, 500);
-    }, 1000);
+        }, 1000);
+    }, 2000);
 }
