@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTP_REFERER} ^view-source: [NC]
-RewriteRule ^(.*)$ https://creations-inventostarz.pages.dev [L,R=301]
