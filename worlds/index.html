@@ -196,7 +196,7 @@
 <body>
     <nav class="navbar">
         <ul class="nav-list">
-            <div class="logo"><a href="/"><img src="/data/logo/logo.png" alt="Logo"></a></div>
+            <div class="logo"><a href="/"><img src="/data/logo/logo.png" style="width:40px;height:40px;"></a></div>
             <li><a href="/">Home</a></li>
             <li><a href="/about/">About</a></li>
             <li><a href="/mods/">Mods</a></li>
@@ -214,36 +214,53 @@
                 </div>
             </div>
         </ul>
-        <ul class="rightNav">
-            <a href="/login/"><lmno>Login/Sign Up</lmno></a>
-        </ul>
+        <a href="/login/" class="login-link"><lmno>Login/Sign Up</lmno></a>
+        <span class="settings-icon-wrapper">
+            <img src="/data/gif/settings-icon.gif" alt="Settings" class="settings-icon" id="settings-btn">
+        </span>
     </nav>
     <div class="container">
         <h1>My Worlds</h1>
         <p>No Data!</p>
     </div>
-    <script>
-        // JavaScript for making dropdown functional on hover and click
-        document.addEventListener('DOMContentLoaded', function() {
-            var dropdown = document.querySelector('.dropdown');
-            var dropdownContent = dropdown.querySelector('.dropdown-content');
+    <div id="language-modal" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Language Selection</h2>
+            <div class="language-select-container">
+                <select id="language-select" class="language-select">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                </select>
+                <span class="language-select-arrow"></span>
+            </div>
+        </div>
+    </div>
+    <!-- Settings modal -->
+    <div id="settings-modal" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <center><h2>Settings</h2></center>
+            <div class="dark-mode-toggle-container">
+                <span>Dark Mode:</span>
+                <label class="dark-mode-slider">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="dark-mode-slider-thumb"></span>
+                </label>
+            </div>
+            <div class="language-select-container">
+                <label for="language-select">Language:</label>
+                <select id="language-select" class="language-select">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
-            dropdown.addEventListener('mouseover', function() {
-                dropdownContent.style.display = 'block';
-            });
-
-            dropdown.addEventListener('mouseout', function() {
-                dropdownContent.style.display = 'none';
-            });
-
-            dropdown.querySelector('button').addEventListener('click', function() {
-                if (dropdownContent.style.display === 'block') {
-                    dropdownContent.style.display = 'none';
-                } else {
-                    dropdownContent.style.display = 'block';
-                }
-            });
-        });
-    </script>
+    <script src="/data/js/worlds/script.js"></script>
+    <script src="data/js/all-main/hover-click/script.js"></script>
 </body>
 </html>

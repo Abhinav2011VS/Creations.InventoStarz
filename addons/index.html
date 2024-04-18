@@ -222,28 +222,44 @@
         <h1>My Addons</h1>
         <p>No Data!</p>
     </div>
-    <script>
-        // JavaScript for making dropdown functional on hover and click
-        document.addEventListener('DOMContentLoaded', function() {
-            var dropdown = document.querySelector('.dropdown');
-            var dropdownContent = dropdown.querySelector('.dropdown-content');
+    <div id="language-modal" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Language Selection</h2>
+            <div class="language-select-container">
+                <select id="language-select" class="language-select">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                </select>
+                <span class="language-select-arrow"></span>
+            </div>
+        </div>
+    </div>
+    <!-- Settings modal -->
+    <div id="settings-modal" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <center><h2>Settings</h2></center>
+            <div class="dark-mode-toggle-container">
+                <span>Dark Mode:</span>
+                <label class="dark-mode-slider">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="dark-mode-slider-thumb"></span>
+                </label>
+            </div>
+            <div class="language-select-container">
+                <label for="language-select">Language:</label>
+                <select id="language-select" class="language-select">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
-            dropdown.addEventListener('mouseover', function() {
-                dropdownContent.style.display = 'block';
-            });
-
-            dropdown.addEventListener('mouseout', function() {
-                dropdownContent.style.display = 'none';
-            });
-
-            dropdown.querySelector('button').addEventListener('click', function() {
-                if (dropdownContent.style.display === 'block') {
-                    dropdownContent.style.display = 'none';
-                } else {
-                    dropdownContent.style.display = 'block';
-                }
-            });
-        });
-    </script>
+    <script src="/data/js/addons/script.js"></script>
+    <script src="data/js/all-main/hover-click/script.js"></script>
 </body>
 </html>
