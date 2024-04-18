@@ -20,39 +20,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Function to display popup
-function displayPopup(message) {
-    alert(message);
-}
-
-// Event listener for context menu (right-click)
-document.addEventListener('contextmenu', function (event) {
-    event.preventDefault(); // Prevent default right-click behavior
-    displayPopup('Right Click is Disabled');
+// Disable right-click context menu
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    alert("Right-click is disabled.");
 });
 
-// Event listener for keydown (keyboard shortcuts)
-document.addEventListener('keydown', function (event) {
-    // Disable Ctrl+U
-    if ((event.ctrlKey || event.metaKey) && event.key === 'u') {
-        event.preventDefault();
-        displayPopup('Viewing Source is Disabled');
-    }
-
-    // Disable F12 and Fn+F12
-    if (event.key === 'F12' || (event.key === 'F12' && event.ctrlKey) || (event.key === 'F12' && event.altKey)) {
-        event.preventDefault();
-        displayPopup('Inspection is Not Allowed');
+// Disable Ctrl+U, F12, and Fn+F12
+document.addEventListener("keydown", function (e) {
+    if ((e.ctrlKey && e.key === "u") || e.key === "F12" || (e.key === "F12" && e.key === "Control")) {
+        e.preventDefault();
+        alert("Viewing source or inspection is not allowed.");
     }
 });
-
-// Event listener for beforeunload (preventing navigation)
-window.addEventListener('beforeunload', function (event) {
-    event.preventDefault();
-    event.returnValue = ''; // For older browsers
-});
-
-// Redirect if view-source: protocol is used
-if (window.location.href.startsWith('view-source:')) {
-    window.location.href = 'https://creations-inventostarz.pages.dev';
-}
