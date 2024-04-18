@@ -296,3 +296,34 @@ input:checked + .dark-mode-slider-thumb:before {
 .language-select:focus {
     background-color: #343434;
 }
+/* Disable text selection */
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+/* Styles for the pop-up */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    z-index: 9999;
+}
+
+.popup-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.popup-message {
+    font-size: 18px;
+}
