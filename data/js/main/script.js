@@ -35,23 +35,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const storedLanguage = localStorage.getItem('selectedLanguage');
     if (storedLanguage) {
         languageSelect.value = storedLanguage;
+        translateNavbar(storedLanguage); // Translate navbar on initial load
     }
     languageSelect.addEventListener('change', function () {
         const language = this.value;
-        // Implement auto-translation logic based on selected language
-        const navLinks = document.querySelectorAll('.nav-list li a');
-        navLinks.forEach(link => {
-            if (language === 'fr') {
-                link.textContent = 'Accueil';
-            } else if (language === 'es') {
-                link.textContent = 'Inicio';
-            } else {
-                link.textContent = 'Home';
-            }
-        });
+        translateNavbar(language); // Translate navbar when language changes
+        // Store selected language in local storage
+        localStorage.setItem('selectedLanguage', language);
+    });
 
-        // Translate other navbar items
+    function translateNavbar(language) {
         const navbarTranslations = {
+            'Home': { 'en': 'Home', 'fr': 'Accueil', 'es': 'Inicio' },
             'About': { 'en': 'About', 'fr': 'À Propos', 'es': 'Acerca De' },
             'Mods': { 'en': 'Mods', 'fr': 'Mods', 'es': 'Modificaciones' },
             'Data Packs': { 'en': 'Data Packs', 'fr': 'Packs De Données', 'es': 'Paquetes De Datos' },
@@ -71,10 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 navItem.textContent = translation;
             }
         });
-
-        // Store selected language in local storage
-        localStorage.setItem('selectedLanguage', language);
-    });
+    }
 
     // JavaScript for handling modal popup
     const settingsBtn = document.getElementById('settings-btn');
