@@ -301,10 +301,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: rgb(255, 255, 255, 0.60);
     padding: 20px;
     border-radius: 10px;
-    color: rgba(0, 0, 0, 0.8);
+    color: black;
     text-align: center;
     z-index: 9999;
 }
