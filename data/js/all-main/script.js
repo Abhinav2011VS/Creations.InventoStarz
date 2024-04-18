@@ -40,4 +40,12 @@ function showPopup(message) {
     var popupMessage = document.getElementById("popup-message");
     popupMessage.textContent = message;
     popupContainer.style.display = "block";
+    // Fade out after 1 second
+    setTimeout(function () {
+        popupContainer.style.opacity = 0;
+        setTimeout(function () {
+            popupContainer.style.display = "none";
+            popupContainer.style.opacity = 1;
+        }, 500);
+    }, 1000);
 }
