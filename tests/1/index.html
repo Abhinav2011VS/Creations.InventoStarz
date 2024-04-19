@@ -22,6 +22,8 @@
             justify-content: center;
             align-items: center;
             z-index: 9999; /* Ensure loader appears above everything */
+            opacity: 1; /* Initially fully visible */
+            transition: opacity 0.5s ease; /* Fade out animation */
         }
 
         .loader {
