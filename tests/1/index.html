@@ -23,6 +23,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
             display: none; /* Hide initially */
+            opacity: 0; /* Initially transparent */
+            transition: opacity 0.5s ease; /* Fade animation */
         }
 
         @keyframes spin {
@@ -34,11 +36,22 @@
                 transform: rotate(360deg);
             }
         }
+
+        .content {
+            display: none; /* Hide initially */
+            opacity: 0; /* Initially transparent */
+            transition: opacity 0.5s ease; /* Fade animation */
+        }
+
+        .fade-in {
+            display: block !important; /* Ensure content is visible */
+            opacity: 1; /* Make content fully opaque */
+        }
     </style>
 </head>
 <body>
     <!-- Your content here -->
-    <div class="content" id="content" style="display: none;">
+    <div class="content fade-in" id="content">
         <h1>Welcome to My Website</h1>
         <p>This is some text.</p>
     </div>
@@ -46,12 +59,21 @@
     <script>
         // Show loader
         document.getElementById('loader').style.display = 'block';
-
+        setTimeout(function() {
+            document.getElementById('loader').style.opacity = '1'; // Fade in loader
+            document.getElementById('content').style.display = 'block'; // Show content
+            document.getElementById('content').style.opacity = '1'; // Fade in content
+        }, 10); // Introduce slight delay to ensure animation starts
         // Simulate 2 seconds loading time
         setTimeout(function() {
-            document.getElementById('loader').style.display = 'none'; // Hide loader
-            document.getElementById('content').style.display = 'block'; // Show content
-        }, 2000);
+            document.getElementById('loader').style.opacity = '0'; // Fade out loader
+            document.getElementById('content').style.opacity = '0'; // Fade out content
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none'; // Hide loader
+                document.getElementById('content').classList.remove('fade-in'); // Remove fade-in class from content
+                document.getElementById('content').style.display = 'none'; // Hide content
+            }, 500); // Wait for fade out animation to complete
+        }, 2000); // Actual loading time
     </script>
 </body>
 </html>
