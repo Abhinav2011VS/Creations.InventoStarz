@@ -44,10 +44,14 @@
     </div>
     <div class="loader" id="loader"></div>
     <script>
-        window.addEventListener('load', function() {
-            document.getElementById('loader').style.display = 'none'; // Hide loader when page is fully loaded
-            document.getElementById('content').style.display = 'block'; // Show content when page is fully loaded
-        });
+        // Show loader
+        document.getElementById('loader').style.display = 'block';
+
+        // Simulate 2 seconds loading time
+        setTimeout(function() {
+            document.getElementById('loader').style.display = 'none'; // Hide loader
+            document.getElementById('content').style.display = 'block'; // Show content
+        }, 2000);
     </script>
 </body>
 </html>
