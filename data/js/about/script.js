@@ -5,82 +5,52 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update stylesheet based on dark mode state
     const stylesheetLink = document.getElementById('stylesheet');
     if (isDarkModeEnabled) {
-        document.body.classList.add('dark-mode');
-        stylesheetLink.href = '/data/css/main/dark/styles.css';
+        stylesheetLink.href = '/data/css/about/dark/styles.css';
     } else {
-        document.body.classList.remove('dark-mode');
-        stylesheetLink.href = '/data/css/main/light/styles.css';
+        stylesheetLink.href = '/data/css/about/light/styles.css';
     }
 
     // Event listener for dark mode toggle
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     darkModeToggle.checked = isDarkModeEnabled; // Set the initial state of the toggle
     darkModeToggle.addEventListener('change', function () {
-        const darkModeEnabled = this.checked;
-        if (darkModeEnabled) {
+        if (this.checked) {
             document.body.classList.add('dark-mode');
+            // Store dark mode state in local storage
             localStorage.setItem('darkModeEnabled', 'true');
+            // Update stylesheet link
+            stylesheetLink.href = '/data/css/about/dark/styles.css';
         } else {
             document.body.classList.remove('dark-mode');
+            // Store dark mode state in local storage
             localStorage.setItem('darkModeEnabled', 'false');
+            // Update stylesheet link
+            stylesheetLink.href = '/data/css/about/light/styles.css';
         }
     });
 
-    // Check if language selection is saved in local storage
-    const savedLang = localStorage.getItem('lang');
-    if (savedLang) {
-        document.getElementById('language-select').value = savedLang;
-    }
+    // JavaScript for handling modal popup
+    const settingsBtn = document.getElementById('settings-btn');
+    const closePopupBtns = document.querySelectorAll('.popup-content .close');
+    const modals = document.querySelectorAll('.popup');
 
-    // Event listener for language selection
-    const languageSelect = document.getElementById('language-select');
-    languageSelect.addEventListener('change', function () {
-        const selectedLang = this.value;
-        localStorage.setItem('lang', selectedLang);
-        // Call function to update translations
-        updateTranslations(selectedLang);
+    settingsBtn.addEventListener('click', function () {
+        document.getElementById('settings-modal').style.display = 'block';
     });
 
-    // Function to update translations
-    function updateTranslations(language) {
-        // Translation mappings
-        const translations = {
-            'en': {
-                'Home': 'Home',
-                'About': 'About',
-                'Mods': 'Mods',
-                'Data Packs': 'Data Packs',
-                'Texture/Resource Packs': 'Texture/Resource Packs',
-                // Add more translations here
-            },
-            'fr': {
-                'Home': 'Accueil',
-                'About': 'À Propos',
-                'Mods': 'Mods',
-                'Data Packs': 'Packs De Données',
-                'Texture/Resource Packs': 'Packs De Textures',
-                // Add more translations here
-            },
-            'es': {
-                'Home': 'Inicio',
-                'About': 'Acerca De',
-                'Mods': 'Modificaciones',
-                'Data Packs': 'Paquetes De Datos',
-                'Texture/Resource Packs': 'Paquetes De Texturas',
-                // Add more translations here
-            }
-        };
-
-        // Update navigation links with translations
-        const navLinks = document.querySelectorAll('.nav-list li a');
-        navLinks.forEach(link => {
-            const originalText = link.dataset.original || link.textContent;
-            link.textContent = translations[language][originalText];
+    closePopupBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
         });
-    }
+    });
 
-    // Call function to update translations based on saved language
-    if (savedLang) {
-        updateTranslations(savedLang);
-    }
+    window.addEventListener('click', function (event) {
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
 });
