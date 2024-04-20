@@ -49,3 +49,14 @@ function showPopup(message) {
         }, 1000);
     }, 2000);
 }
+
+// Simulate 2 seconds loading time
+setTimeout(function () {
+    document.getElementById('loader-container').style.opacity = '0'; // Fade out loader container
+    setTimeout(function () {
+        document.getElementById('loader-container').style.display = 'none'; // Hide loader container
+        document.getElementById('content').classList.add('fade-in'); // Add fade-in class to content
+        document.getElementById('content').style.display = 'block'; // Show content
+        document.getElementById('content').style.opacity = '1'; // Fade in content
+    }, 500); // Wait for fade out animation to complete
+}, 500); // Actual loading time
