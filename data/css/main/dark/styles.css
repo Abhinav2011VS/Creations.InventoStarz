@@ -149,6 +149,32 @@ body {
     padding: 20px;
     border-radius: 20px; /* Rounded corners */
     box-shadow: 0 0 10px rgb(255, 255, 255, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    flex-wrap: wrap;
+    flex-direction: column; /* Stack items vertically */
+}
+
+.sub-container {
+    min-width: 650px;
+    max-width: 700px;
+    max-height: 400px;
+    margin: 20px auto; /* Adjust margin */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative; /* Add relative positioning */
+}
+
+.sub-container img {
+    max-width: 200px;
+    margin-right: 20px;
+    border-radius: 10px;
 }
 
 h1 {
@@ -305,3 +331,27 @@ body {
 .popup-message {
     font-size: 18px;
 }
+
+.explore-button {
+    position: absolute;
+    top: 50%; /* Adjust to center vertically */
+    right: 50px; /* Move the button 50px to the left */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+}
+
+.explore-button a {
+    background-color: rgb(50, 205, 50);
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid white;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.explore-button a:hover {
+    background-color: rgb(34, 139, 34);
+    color: black;
+}
+
