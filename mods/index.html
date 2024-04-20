@@ -27,14 +27,14 @@
 <body>
     <nav class="navbar">
         <ul class="nav-list">
-            <div class="logo"><a href="/"><img src="/data/logo/logo.png" alt="Logo"></a></div>
+            <div class="logo"><a href="/"><img src="/data/logo/logo.png" style="width:40px;height:40px;"></a></div>
             <li><a href="/">Home</a></li>
             <li><a href="/about/">About</a></li>
             <li><a href="/mods/">Mods</a></li>
             <li><a href="/data-packs/">Data Packs</a></li>
             <li><a href="/texture-packs/">Texture/Resource Packs</a></li>
             <div class="dropdown" style="float:right;">
-                <button class="dropbtn"><lmno>More...</lmno></button>
+                <button class="dropbtn"><lmn>More...</lmn></button>
                 <div class="dropdown-content" style="right:0;">
                     <a href="/shaders/">Shaders</a>
                     <a href="/worlds/">Worlds</a>
@@ -45,9 +45,10 @@
                 </div>
             </div>
         </ul>
-        <ul class="rightNav">
-            <a href="/login/"><lmno>Login/Sign Up</lmno></a>
-        </ul>
+        <a href="/login/" class="login-link"><lmno>Login/Sign Up</lmno></a>
+        <span class="settings-icon-wrapper">
+            <img src="/data/gif/settings-icon.gif" alt="Settings" class="settings-icon" id="settings-btn">
+        </span>
     </nav>
     <div class="container">
         <h1>My Mods</h1>
